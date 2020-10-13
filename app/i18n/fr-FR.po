@@ -1,0 +1,60 @@
+msgid "day_month_separator"
+msgstr ""
+
+msgid "month_short_0"
+msgstr "JAN"
+
+msgid "month_short_1"
+msgstr "FEV"
+
+msgid "month_short_2"
+msgstr "MAR"
+
+msgid "month_short_3"
+msgstr "AVR"
+
+msgid "month_short_4"
+msgstr "MAI"
+
+msgid "month_short_5"
+msgstr "JUN"
+
+msgid "month_short_6"
+msgstr "JUL."
+
+msgid "month_short_7"
+msgstr "AOU"
+
+msgid "month_short_8"
+msgstr "SEP"
+
+msgid "month_short_9"
+msgstr "OCT"
+
+msgid "month_short_10"
+msgstr "NOV"
+
+msgid "month_short_11"
+msgstr "DEC"
+
+msgid "day_short_0"
+msgstr "DIM"
+
+msgid "day_short_1"
+msgstr "LUN"
+
+msgid "day_short_2"
+msgstr "MAR"
+
+msgid "day_short_3"
+msgstr "MER"
+
+msgid "day_short_4"
+msgstr "JEU"
+
+msgid "day_short_5"
+msgstr "VEN"
+
+msgid "day_short_6"
+msgstr "SAM"
+

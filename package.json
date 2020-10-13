@@ -1,0 +1,78 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~4.2.0"
+  },
+  "fitbit": {
+    "appUUID": "1c059981-f8af-4a7c-b8c0-d87c241f0068",
+    "appType": "clockface",
+    "appDisplayName": "SimpleWeather",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate",
+      "access_location",
+      "access_internet",
+      "run_background"
+    ],
+    "buildTargets": [
+      "meson",
+      "mira",
+      "gemini"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "SimpleWeather"
+      },
+      "fr-FR": {
+        "name": "SimpleWeather"
+      },
+      "de-DE": {
+        "name": "SimpleWeather"
+      },
+      "es-ES": {
+        "name": "SimpleWeather"
+      },
+      "it-IT": {
+        "name": "SimpleWeather"
+      },
+      "ja-JP": {
+        "name": "SimpleWeather"
+      },
+      "ko-KR": {
+        "name": "SimpleWeather"
+      },
+      "nl-NL": {
+        "name": "SimpleWeather"
+      },
+      "sv-SE": {
+        "name": "SimpleWeather"
+      },
+      "zh-CN": {
+        "name": "SimpleWeather"
+      },
+      "zh-TW": {
+        "name": "SimpleWeather"
+      },
+      "pt-BR": {
+        "name": "SimpleWeather"
+      },
+      "id-ID": {
+        "name": "SimpleWeather"
+      },
+      "ro-RO": {
+        "name": "SimpleWeather"
+      },
+      "ru-RU": {
+        "name": "SimpleWeather"
+      },
+      "pl-PL": {
+        "name": "SimpleWeather"
+      },
+      "cs-CZ": {
+        "name": "SimpleWeather"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}

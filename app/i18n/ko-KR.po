@@ -1,0 +1,162 @@
+msgid "Active Minutes"
+msgstr "활동적 시간(분)"
+
+msgid "Activity"
+msgstr "활동"
+
+msgid "calorie"
+msgstr "칼로리"
+
+msgid "Calorie count"
+msgstr "칼로리 소모량"
+
+msgid "Calories burned"
+msgstr "칼로리 소모량"
+
+msgid "challenge"
+msgstr "챌린지"
+
+msgid "Clock + Display"
+msgstr "시계 + 디스플레이"
+
+msgid "clock face"
+msgstr "시계 페이스"
+
+msgid "daily goal"
+msgstr "일일 목표"
+
+msgid "daily stats"
+msgstr "일일 통계"
+
+msgid "daily target"
+msgstr "일일 목표"
+
+msgid "Distance"
+msgstr "이동 거리"
+
+msgid "exercise mode"
+msgstr "운동 모드"
+
+msgid "exercise tracking"
+msgstr "운동 모니터링"
+
+msgid "Floors"
+msgstr "층수"
+
+msgid "Floors climbed"
+msgstr "오른 층수"
+
+msgid "Get more steps!"
+msgstr "더 걸으세요!"
+
+msgid "Goal"
+msgstr "목표"
+
+msgid "Heart rate"
+msgstr "심박수"
+
+msgid "Resting Heart Rate"
+msgstr "안정시 심박수"
+
+msgid "stats"
+msgstr "통계"
+
+msgid "Steps"
+msgstr "걸음 수"
+
+msgid "day_month_separator"
+msgstr "/"
+
+msgid "month_short_0"
+msgstr "1월"
+
+msgid "month_short_1"
+msgstr "2월"
+
+msgid "month_short_2"
+msgstr "3월"
+
+msgid "month_short_3"
+msgstr "4월"
+
+msgid "month_short_4"
+msgstr "5월"
+
+msgid "month_short_5"
+msgstr "6월"
+
+msgid "month_short_6"
+msgstr "7월"
+
+msgid "month_short_7"
+msgstr "8월"
+
+msgid "month_short_8"
+msgstr "9월"
+
+msgid "month_short_9"
+msgstr "10월"
+
+msgid "month_short_10"
+msgstr "11월"
+
+msgid "month_short_11"
+msgstr "12월"
+
+msgid "month_long_0"
+msgstr "1월"
+
+msgid "month_long_1"
+msgstr "2월"
+
+msgid "month_long_2"
+msgstr "3월"
+
+msgid "month_long_3"
+msgstr "4월"
+
+msgid "month_long_4"
+msgstr "5월"
+
+msgid "month_long_5"
+msgstr "6월"
+
+msgid "month_long_6"
+msgstr "7월"
+
+msgid "month_long_7"
+msgstr "8월"
+
+msgid "month_long_8"
+msgstr "9월"
+
+msgid "month_long_9"
+msgstr "10월"
+
+msgid "month_long_10"
+msgstr "11월"
+
+msgid "month_long_11"
+msgstr "12월"
+
+msgid "day_short_0"
+msgstr "일"
+
+msgid "day_short_1"
+msgstr "월"
+
+msgid "day_short_2"
+msgstr "화"
+
+msgid "day_short_3"
+msgstr "수"
+
+msgid "day_short_4"
+msgstr "목"
+
+msgid "day_short_5"
+msgstr "금"
+
+msgid "day_short_6"
+msgstr "토"
+

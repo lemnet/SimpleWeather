@@ -1,0 +1,162 @@
+msgid "Active Minutes"
+msgstr "活動分鐘數"
+
+msgid "Activity"
+msgstr "活動"
+
+msgid "calorie"
+msgstr "卡路里"
+
+msgid "Calorie count"
+msgstr "卡路里燃燒量"
+
+msgid "Calories burned"
+msgstr "卡路里燃燒量"
+
+msgid "challenge"
+msgstr "挑戰"
+
+msgid "Clock + Display"
+msgstr "時鐘 + 顯示幕"
+
+msgid "clock face"
+msgstr "錶面"
+
+msgid "daily goal"
+msgstr "每日目標"
+
+msgid "daily stats"
+msgstr "每日統計資料"
+
+msgid "daily target"
+msgstr "每日目標"
+
+msgid "Distance"
+msgstr "距離"
+
+msgid "exercise mode"
+msgstr "運動模式"
+
+msgid "exercise tracking"
+msgstr "運動追蹤"
+
+msgid "Floors"
+msgstr "樓層數"
+
+msgid "Floors climbed"
+msgstr "攀爬樓層數"
+
+msgid "Get more steps!"
+msgstr "取得更多步數！"
+
+msgid "Goal"
+msgstr "目標"
+
+msgid "Heart rate"
+msgstr "心率"
+
+msgid "Resting Heart Rate"
+msgstr "靜息心率"
+
+msgid "stats"
+msgstr "統計資料"
+
+msgid "Steps"
+msgstr "步數"
+
+msgid "day_month_separator"
+msgstr ","
+
+msgid "month_short_0"
+msgstr "1 月"
+
+msgid "month_short_1"
+msgstr "2 月"
+
+msgid "month_short_2"
+msgstr "3 月"
+
+msgid "month_short_3"
+msgstr "4 月"
+
+msgid "month_short_4"
+msgstr "5 月"
+
+msgid "month_short_5"
+msgstr "6 月"
+
+msgid "month_short_6"
+msgstr "7 月"
+
+msgid "month_short_7"
+msgstr "8 月"
+
+msgid "month_short_8"
+msgstr "9 月"
+
+msgid "month_short_9"
+msgstr "10 月"
+
+msgid "month_short_10"
+msgstr "11 月"
+
+msgid "month_short_11"
+msgstr "12 月"
+
+msgid "month_long_0"
+msgstr "一月"
+
+msgid "month_long_1"
+msgstr "二月"
+
+msgid "month_long_2"
+msgstr "三月"
+
+msgid "month_long_3"
+msgstr "四月"
+
+msgid "month_long_4"
+msgstr "五月"
+
+msgid "month_long_5"
+msgstr "六月"
+
+msgid "month_long_6"
+msgstr "七月"
+
+msgid "month_long_7"
+msgstr "八月"
+
+msgid "month_long_8"
+msgstr "九月"
+
+msgid "month_long_9"
+msgstr "十月"
+
+msgid "month_long_10"
+msgstr "十一月"
+
+msgid "month_long_11"
+msgstr "十二月"
+
+msgid "day_short_0"
+msgstr "日"
+
+msgid "day_short_1"
+msgstr "一"
+
+msgid "day_short_2"
+msgstr "二"
+
+msgid "day_short_3"
+msgstr "三"
+
+msgid "day_short_4"
+msgstr "四"
+
+msgid "day_short_5"
+msgstr "五"
+
+msgid "day_short_6"
+msgstr "六"
+

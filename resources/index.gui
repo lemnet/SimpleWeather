@@ -1,0 +1,17 @@
+<svg id="main" pointer-events="visible">
+  <rect id="mainBackground" />
+  <image id="nightBackground" class="nightBackground" href="icons/night.png" load="sync" />
+  <text id="dateText" />
+  <image id="actIcon" class="actIcon" href="icons/step.png" load="sync" />
+  <text id="actText" />
+  <text id="timeText" />
+  <image id="condIcon" class="condIcon" load="sync" />
+  <svg id="locationarea">
+    <image id="locIcon" class="locIcon" href="icons/location.png" load="sync" />
+    <text id="locText" />
+    <text id="lochText" />
+  </svg>
+  <image id="battIcon" class="battIcon" href="icons/batt.png" load="sync" />
+  <rect id="battStatus" class="battStatus" />
+  <text id="tempText" />
+</svg>

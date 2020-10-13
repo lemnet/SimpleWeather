@@ -1,0 +1,162 @@
+msgid "Active Minutes"
+msgstr "活跃分钟数"
+
+msgid "Activity"
+msgstr "活动"
+
+msgid "calorie"
+msgstr "卡路里"
+
+msgid "Calorie count"
+msgstr "卡路里消耗数"
+
+msgid "Calories burned"
+msgstr "消耗卡路里数"
+
+msgid "challenge"
+msgstr "挑战"
+
+msgid "Clock + Display"
+msgstr "时钟 + 显示屏"
+
+msgid "clock face"
+msgstr "时钟显示"
+
+msgid "daily goal"
+msgstr "每日目标"
+
+msgid "daily stats"
+msgstr "每日统计数据"
+
+msgid "daily target"
+msgstr "每日目标"
+
+msgid "Distance"
+msgstr "距离"
+
+msgid "exercise mode"
+msgstr "运动模式"
+
+msgid "exercise tracking"
+msgstr "锻炼追踪"
+
+msgid "Floors"
+msgstr "楼层"
+
+msgid "Floors climbed"
+msgstr "攀爬楼层数"
+
+msgid "Get more steps!"
+msgstr "请多走几步！"
+
+msgid "Goal"
+msgstr "目标"
+
+msgid "Heart rate"
+msgstr "心率"
+
+msgid "Resting Heart Rate"
+msgstr "静息心率"
+
+msgid "stats"
+msgstr "统计数据"
+
+msgid "Steps"
+msgstr "步数"
+
+msgid "day_month_separator"
+msgstr ""
+
+msgid "month_short_0"
+msgstr "1月"
+
+msgid "month_short_1"
+msgstr "2月"
+
+msgid "month_short_2"
+msgstr "3月"
+
+msgid "month_short_3"
+msgstr "4月"
+
+msgid "month_short_4"
+msgstr "5月"
+
+msgid "month_short_5"
+msgstr "6月"
+
+msgid "month_short_6"
+msgstr "7月"
+
+msgid "month_short_7"
+msgstr "8月"
+
+msgid "month_short_8"
+msgstr "9月"
+
+msgid "month_short_9"
+msgstr "10月"
+
+msgid "month_short_10"
+msgstr "11月"
+
+msgid "month_short_11"
+msgstr "12月"
+
+msgid "month_long_0"
+msgstr "一月"
+
+msgid "month_long_1"
+msgstr "二月"
+
+msgid "month_long_2"
+msgstr "三月"
+
+msgid "month_long_3"
+msgstr "四月"
+
+msgid "month_long_4"
+msgstr "五月"
+
+msgid "month_long_5"
+msgstr "六月"
+
+msgid "month_long_6"
+msgstr "七月"
+
+msgid "month_long_7"
+msgstr "八月"
+
+msgid "month_long_8"
+msgstr "九月"
+
+msgid "month_long_9"
+msgstr "十月"
+
+msgid "month_long_10"
+msgstr "十一月"
+
+msgid "month_long_11"
+msgstr "十二月"
+
+msgid "day_short_0"
+msgstr "日"
+
+msgid "day_short_1"
+msgstr "一"
+
+msgid "day_short_2"
+msgstr "二"
+
+msgid "day_short_3"
+msgstr "三"
+
+msgid "day_short_4"
+msgstr "四"
+
+msgid "day_short_5"
+msgstr "五"
+
+msgid "day_short_6"
+msgstr "六"
+
