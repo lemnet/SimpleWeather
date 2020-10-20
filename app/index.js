@@ -13,7 +13,7 @@ import { geolocation } from "geolocation";
 import { battery } from 'power';
 import { me as device } from "device";
 import * as messaging from "messaging";
-import { readFileSync } from "fs";
+import * as fs from "fs";
 
 
 // Update the clock every minute
@@ -39,6 +39,7 @@ let currentAct = 0;
 let latitude = 0;
 let longitude = 0;
 let lastfetch = 0;
+let starting = 1;
 
 
 // HeartRateSensor
@@ -56,7 +57,7 @@ hrm.addEventListener("reading", () => {
 
 // location
 function locationSuccess(position) {
-  var api_key = readFileSync("/mnt/assets/resources/openweather_api.key", "ascii");
+  var api_key = fs.readFileSync("/mnt/assets/resources/openweather_api.key", "ascii");
   if (units.temperature == "C")
     fetchWeather(position.coords.latitude,position.coords.longitude,"metric",api_key);
   else
@@ -92,7 +93,13 @@ function processWeatherData(data) {
   tempText.text = Math.round(data.temperature) + "°" + units.temperature;
   locIcon.style.display = "inline";
   locText.text = data.location;
-  lochText.text = timeText.text;  
+  lochText.text = timeText.text;
+  let json_data = {
+    "icon": data.icon,
+    "temperature": data.temperature,
+    "location": data.location,
+  }
+  fs.writeFileSync("weather.txt", json_data, "json");
 //  console.log(`The icon is: ${data.icon}`);
 //  console.log(`The temperature is: ${data.temperature}`);
 //  console.log(`The location is: ${data.location}`);
@@ -116,6 +123,13 @@ messaging.peerSocket.addEventListener("error", (err) => {
 
 // every minute
 clock.ontick = (evt) => {
+  if (starting == 1) {
+    if (fs.existsSync("/private/data/weather.txt")) {
+      let json_weather  = fs.readFileSync("weather.txt", "json");
+      processWeatherData(json_weather);
+      starting = 0;
+    }
+  }
   const currentDate = evt.date;
   dateText.text = getDate(currentDate);
   if (currentAct == 0) //steps
