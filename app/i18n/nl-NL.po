@@ -1,162 +1,60 @@
-msgid "Active Minutes"
-msgstr "Actieve minuten"
-
-msgid "Activity"
-msgstr "Activiteit"
-
-msgid "calorie"
-msgstr "calorie"
-
-msgid "Calorie count"
-msgstr "Calorieën tellen"
-
-msgid "Calories burned"
-msgstr "Calorieën verbrand"
-
-msgid "challenge"
-msgstr "uitdaging"
-
-msgid "Clock + Display"
-msgstr "Klok + weergave"
-
-msgid "clock face"
-msgstr "wijzerplaat"
-
-msgid "daily goal"
-msgstr "dagelijkse doel"
-
-msgid "daily stats"
-msgstr "dagelijkse statistieken"
-
-msgid "daily target"
-msgstr "dagelijks doelwit"
-
-msgid "Distance"
-msgstr "Afstand"
-
-msgid "exercise mode"
-msgstr "trainingsmodus"
-
-msgid "exercise tracking"
-msgstr "oefening volgen"
-
-msgid "Floors"
-msgstr "vloeren"
-
-msgid "Floors climbed"
-msgstr "Vloeren klommen"
-
-msgid "Get more steps!"
-msgstr "Krijg meer stappen!"
-
-msgid "Goal"
-msgstr "Doel"
-
-msgid "Heart rate"
-msgstr "Hartslag"
-
-msgid "Resting Heart Rate"
-msgstr "Rustende hartslag"
-
-msgid "stats"
-msgstr "stats"
-
-msgid "Steps"
-msgstr "Stappen"
-
 msgid "day_month_separator"
 msgstr ""
 
 msgid "month_short_0"
-msgstr "jan"
+msgstr "JAN"
 
 msgid "month_short_1"
-msgstr "feb"
+msgstr "FEB"
 
 msgid "month_short_2"
-msgstr "mrt"
+msgstr "MRT"
 
 msgid "month_short_3"
-msgstr "apr"
+msgstr "APR"
 
 msgid "month_short_4"
-msgstr "mei"
+msgstr "MEI"
 
 msgid "month_short_5"
-msgstr "jun"
+msgstr "JUN"
 
 msgid "month_short_6"
-msgstr "jul"
+msgstr "JUL"
 
 msgid "month_short_7"
-msgstr "aug"
+msgstr "AUG"
 
 msgid "month_short_8"
-msgstr "sep"
+msgstr "SEP"
 
 msgid "month_short_9"
-msgstr "okt"
+msgstr "OKT"
 
 msgid "month_short_10"
-msgstr "nov"
+msgstr "NOV"
 
 msgid "month_short_11"
-msgstr "dec"
-
-msgid "month_long_0"
-msgstr "januari"
-
-msgid "month_long_1"
-msgstr "februari"
-
-msgid "month_long_2"
-msgstr "maart"
-
-msgid "month_long_3"
-msgstr "april"
-
-msgid "month_long_4"
-msgstr "mei."
-
-msgid "month_long_5"
-msgstr "juni."
-
-msgid "month_long_6"
-msgstr "juli."
-
-msgid "month_long_7"
-msgstr "augustus"
-
-msgid "month_long_8"
-msgstr "september"
-
-msgid "month_long_9"
-msgstr "oktober"
-
-msgid "month_long_10"
-msgstr "november"
-
-msgid "month_long_11"
-msgstr "december"
+msgstr "DEC"
 
 msgid "day_short_0"
-msgstr "Zo"
+msgstr "ZO"
 
 msgid "day_short_1"
-msgstr "Ma"
+msgstr "MA"
 
 msgid "day_short_2"
-msgstr "Di"
+msgstr "DI"
 
 msgid "day_short_3"
-msgstr "Wo"
+msgstr "WO"
 
 msgid "day_short_4"
-msgstr "Do"
+msgstr "DO"
 
 msgid "day_short_5"
-msgstr "Vr"
+msgstr "VR"
 
 msgid "day_short_6"
-msgstr "Za"
+msgstr "ZA"
 
