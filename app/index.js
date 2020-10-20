@@ -32,6 +32,7 @@ const locIcon = document.getElementById('locIcon');
 locIcon.style.display = "none";
 const locText = document.getElementById('locText');
 const lochText = document.getElementById('lochText');
+const battIcon = document.getElementById('battIcon');
 const battStatus = document.getElementById('battStatus');
 const tempText = document.getElementById('tempText');
 tempText.text = "--"
@@ -39,8 +40,28 @@ let currentAct = 0;
 let latitude = 0;
 let longitude = 0;
 let lastfetch = 0;
-let starting = 1;
 
+
+// load weather
+if (fs.existsSync("/private/data/weather.txt")) {
+  let json_weather  = fs.readFileSync("weather.txt", "json");
+  processWeatherData(json_weather);
+}
+
+
+// load settings
+if (fs.existsSync("/private/data/color.txt")) {
+  let settings  = fs.readFileSync("color.txt", "json");
+  dateText.style.fill = settings.color;
+  timeText.style.fill = settings.color;
+  actIcon.style.fill = settings.color;
+  actText.style.fill = settings.color;
+  locIcon.style.fill = settings.color;
+  locText.style.fill = settings.color;
+  lochText.style.fill = settings.color;
+  battIcon.style.fill = settings.color;
+  tempText.style.fill = settings.color;
+}
 
 // HeartRateSensor
 const hrm = new HeartRateSensor({ frequency: 1 });
@@ -109,8 +130,24 @@ messaging.peerSocket.addEventListener("open", (evt) => {
   fetchWeather();
 });
 
+
+// message received
 messaging.peerSocket.addEventListener("message", (evt) => {
-  if (evt.data) {
+  if (evt && evt.data && evt.data.key === "color") {
+    vibration.start('bump');
+    let json_data = {"color": evt.data.value}
+    fs.writeFileSync("color.txt", json_data, "json");
+    dateText.style.fill = evt.data.value;
+    timeText.style.fill = evt.data.value;
+    actIcon.style.fill = evt.data.value;
+    actText.style.fill = evt.data.value;
+    locIcon.style.fill = evt.data.value;
+    locText.style.fill = evt.data.value;
+    lochText.style.fill = evt.data.value;
+    battIcon.style.fill = evt.data.value;
+    tempText.style.fill = evt.data.value;
+  }
+  else if (evt && evt.data && evt.data.key === "weather") {
     processWeatherData(evt.data);
   }
 });
@@ -123,13 +160,6 @@ messaging.peerSocket.addEventListener("error", (err) => {
 
 // every minute
 clock.ontick = (evt) => {
-  if (starting == 1) {
-    if (fs.existsSync("/private/data/weather.txt")) {
-      let json_weather  = fs.readFileSync("weather.txt", "json");
-      processWeatherData(json_weather);
-      starting = 0;
-    }
-  }
   const currentDate = evt.date;
   dateText.text = getDate(currentDate);
   if (currentAct == 0) //steps
