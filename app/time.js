@@ -10,7 +10,7 @@ const zeroPad = number => {
   return padded;
 };
 
-export function getTime(date) {
+export function getTimeHM(date) {
   const hours = date.getHours();
   const ret;
   if (preferences.clockDisplay === '12h') {
@@ -22,5 +22,13 @@ export function getTime(date) {
   }
   ret += ":"
   ret += zeroPad(date.getMinutes());
+  return ret;
+};
+
+export function getTimeMS(date) {
+  const ret;
+  ret = zeroPad(date.getMinutes());
+  ret += ":"
+  ret += zeroPad(date.getSeconds());
   return ret;
 };

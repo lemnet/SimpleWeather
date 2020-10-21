@@ -4,7 +4,8 @@ import { units } from "user-settings";
 import * as util from "../common/utils";
 import { gettext } from "i18n";
 import { getDate } from "./date";
-import { getTime } from './time';
+import { getTimeHM } from './time';
+import { getTimeMS } from './time';
 import { today } from 'user-activity'
 import { HeartRateSensor } from 'heart-rate';
 import { display } from "display";
@@ -14,7 +15,6 @@ import { battery } from 'power';
 import { me as device } from "device";
 import * as messaging from "messaging";
 import * as fs from "fs";
-
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -40,6 +40,7 @@ let currentAct = 0;
 let latitude = 0;
 let longitude = 0;
 let lastfetch = 0;
+let secDisplay = 0;
 
 
 // load weather
@@ -72,7 +73,7 @@ hrm.addEventListener("reading", () => {
     if (currentAct == 1)
       display.on ? hrm.start() : hrm.stop();
   });
-    actText.text = hrm.heartRate;
+  actText.text = hrm.heartRate;
 });
 
 
@@ -168,7 +169,10 @@ clock.ontick = (evt) => {
     actText.text = today.adjusted.calories || 0;
   else if (currentAct == 3) //elevation
     actText.text = today.adjusted.elevationGain || 0;
-  timeText.text = getTime(currentDate);
+  if (secDisplay == 0)
+    timeText.text = getTimeHM(currentDate);
+  else
+    timeText.text = getTimeMS(currentDate);
   //try to get location and weather
   setTimeout(function(){
     if ((currentDate.getTime() - lastfetch) > 1800000) { //every 30 min
@@ -191,28 +195,49 @@ clock.ontick = (evt) => {
 
 
 //onclick
-main.onclick = () => {
+main.onclick = (evt) => {
   vibration.start('bump');
-  if (currentAct == 0) { //steps
-    hrm.start(); 
-    actIcon.href="icons/heart.png"
-    actText.text = hrm.heartRate;
-    currentAct = 1;
+  if ((evt.screenX) > 150 && (evt.screenY) < 150) {
+    if (secDisplay == 0) {
+      clock.granularity = "seconds";
+      secDisplay = 1;
+    }
+    else {
+      secDisplay = 0;
+      setTimeout(function(){
+        clock.granularity = "minutes";
+      }, 1500);
+    }
   }
-  else if (currentAct == 1) { //HR
-    hrm.stop();
-    actIcon.href="icons/flame.png"
-    actText.text = today.adjusted.calories || 0;
-    currentAct = 2;
-  }
-  else if (currentAct == 2) { // calo
-    actIcon.href="icons/stairs.png"
-    actText.text = today.adjusted.elevationGain || 0;
-    currentAct = 3;
-  }
-  else if (currentAct == 3) { // elevation
-    actIcon.href="icons/step.png"
-    actText.text = today.adjusted.steps || 0;
-    currentAct = 0;
+  else {
+    if (currentAct == 0) { //steps
+      hrm.start(); 
+      actIcon.href="icons/heart.png"
+      actText.text = hrm.heartRate;
+      currentAct = 1;
+    }
+    else if (currentAct == 1) { //HR
+      hrm.stop();
+      actIcon.href="icons/flame.png"
+      actText.text = today.adjusted.calories || 0;
+      currentAct = 2;
+    }
+    else if (currentAct == 2) { // calo
+      actIcon.href="icons/stairs.png"
+      actText.text = today.adjusted.elevationGain || 0;
+      currentAct = 3;
+    }
+    else if (currentAct == 3) { // elevation
+      actIcon.href="icons/step.png"
+      actText.text = today.adjusted.steps || 0;
+      currentAct = 0;
+    }
   }
 }
+
+display.addEventListener("change", () => {
+  if (!display.on) {
+    secDisplay = 0;
+    clock.granularity = "minutes";
+  }    
+});
