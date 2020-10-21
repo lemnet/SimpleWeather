@@ -197,7 +197,7 @@ clock.ontick = (evt) => {
 //onclick
 main.onclick = (evt) => {
   vibration.start('bump');
-  if ((evt.screenX) > 150 && (evt.screenY) < 150) {
+  if ((evt.screenX) > 150 && (evt.screenY) < 75) {
     if (secDisplay == 0) {
       clock.granularity = "seconds";
       secDisplay = 1;
