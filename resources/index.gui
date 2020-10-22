@@ -13,5 +13,6 @@
   </svg>
   <image id="battIcon" class="battIcon" href="icons/batt.png" load="sync" />
   <rect id="battStatus" class="battStatus" />
+  <rect id="stayOnStatus" class="stayOnStatus" />  
   <text id="tempText" />
 </svg>

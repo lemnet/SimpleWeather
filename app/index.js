@@ -35,6 +35,8 @@ const locText = document.getElementById('locText');
 const lochText = document.getElementById('lochText');
 const battIcon = document.getElementById('battIcon');
 const battStatus = document.getElementById('battStatus');
+const stayOnStatus = document.getElementById('stayOnStatus');
+stayOnStatus.style.display = "none";
 const tempText = document.getElementById('tempText');
 tempText.text = "--"
 let currentAct = 0;
@@ -42,6 +44,7 @@ let latitude = 0;
 let longitude = 0;
 let lastfetch = 0;
 let secDisplay = 0;
+let stayOn = 0;
 
 
 // load weather
@@ -62,6 +65,7 @@ if (fs.existsSync("/private/data/color.txt")) {
   locText.style.fill = settings.color;
   lochText.style.fill = settings.color;
   battIcon.style.fill = settings.color;
+  stayOnStatus.style.fill = settings.color;
   tempText.style.fill = settings.color;
 }
 
@@ -150,6 +154,7 @@ messaging.peerSocket.addEventListener("message", (evt) => {
     locText.style.fill = evt.data.value;
     lochText.style.fill = evt.data.value;
     battIcon.style.fill = evt.data.value;
+    stayOnStatus.style.fill = evt.data.value;
     tempText.style.fill = evt.data.value;
   }
   else if (evt && evt.data && evt.data.key === "weather") {
@@ -165,6 +170,8 @@ messaging.peerSocket.addEventListener("error", (err) => {
 
 // every minute
 clock.ontick = (evt) => {
+  if (stayOn == 1)
+    display.poke();
   const currentDate = evt.date;
   dateText.text = getDate(currentDate);
   if (currentAct == 0) //steps
@@ -201,16 +208,30 @@ clock.ontick = (evt) => {
 //onclick
 main.onclick = (evt) => {
   vibration.start('bump');
-  if ((evt.screenX) > 150 && (evt.screenY) < 75) {
+  if ((evt.screenX) > 150 && (evt.screenY) < 65) {
     if (secDisplay == 0) {
       clock.granularity = "seconds";
       secDisplay = 1;
     }
     else {
       secDisplay = 0;
-      setTimeout(function(){
-        clock.granularity = "minutes";
-      }, 1500);
+      if (stayOn == 0) {
+        setTimeout(function(){
+          clock.granularity = "minutes";
+        }, 1500);
+      }
+    }
+  }
+  else if ((evt.screenY) > 250 && (evt.screenX) > 115 && (evt.screenX) < 185) {
+    if (stayOn == 0) {
+      stayOn = 1;
+      stayOnStatus.style.display = "inline";
+      clock.granularity = "seconds";
+    }
+    else {
+      stayOn = 0;
+      stayOnStatus.style.display = "none";
+      clock.granularity = "minutes";
     }
   }
   else {

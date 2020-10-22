@@ -35,6 +35,7 @@ function Settings(props) {
       <Section title={<Text></Text>}>
         <Text>{gettext("helpl1")}</Text>
         <Text>{gettext("helpl2")}</Text>
+        <Text>{gettext("helpl3")}</Text>
       </Section>
       <Section title={<Text></Text>}>
         <Text bold align="center">{gettext("contact")}</Text>

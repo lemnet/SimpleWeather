@@ -109,6 +109,14 @@
   fill: green;
 }
 
+#stayOnStatus {
+  width: 8;
+  height: 15;
+  x: 50%-4;
+  y: 100%-32;
+  fill: white;
+}
+
 #tempText{
   font-size: 50;
   font-family: System-Bold;

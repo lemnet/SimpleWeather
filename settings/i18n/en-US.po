@@ -11,6 +11,9 @@ msgid "helpl1"
 msgstr "Tap on time to display it in minutes:seconds (instead of hours:minutes) until another tap on time or until the screen goes off."
 
 msgid "helpl2"
+msgstr "Tap on battery to keep te display on until you tap again."
+
+msgid "helpl3"
 msgstr "Tap anywhere else to switch form steps to heart rate, calories and floors."
 
 msgid "contact"
