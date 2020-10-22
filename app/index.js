@@ -74,7 +74,10 @@ hrm.addEventListener("reading", () => {
     if (currentAct == 1)
       display.on ? hrm.start() : hrm.stop();
   });
-  actText.text = hrm.heartRate;
+  if (hrm.heartRate == null || hrm.heartRate == 0) 
+    actText.text = "--";
+  else
+    actText.text = hrm.heartRate;
 });
 
 
@@ -214,7 +217,7 @@ main.onclick = (evt) => {
     if (currentAct == 0) { //steps
       hrm.start(); 
       actIcon.href="icons/heart.png"
-      actText.text = hrm.heartRate;
+      actText.text = hrm.heartRate || "--";
       currentAct = 1;
     }
     else if (currentAct == 1) { //HR
