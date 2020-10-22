@@ -1,0 +1,38 @@
+msgid "clockface_settings"
+msgstr "Clockface settings"
+
+msgid "color"
+msgstr "Color"
+
+msgid "help"
+msgstr "Help"
+
+msgid "helpl1"
+msgstr "Tap on time to display it in minutes:seconds (instead of hours:minutes) until another tap on time or until the screen goes off."
+
+msgid "helpl2"
+msgstr "Tap anywhere else to switch form steps to heart rate, calories and floors."
+
+msgid "contact"
+msgstr "Contact"
+
+msgid "contacttxt"
+msgstr "Feel free to contribute, ask for enhancement, open an issue, or help with translations."
+
+msgid "licences"
+msgstr "Licences"
+
+msgid "licence"
+msgstr "Licence"
+
+msgid "lic_ori_idea"
+msgstr "Original idea: Simple Weather for pebble by Evandro Muller"
+
+msgid "lic_ori_idea_link"
+msgstr "On Rebble App Store"
+
+msgid "lic_fitbit"
+msgstr "Activity icons: "
+
+msgid "lic_weather"
+msgstr "Weather icons: "

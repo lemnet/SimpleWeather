@@ -16,6 +16,7 @@ import { me as device } from "device";
 import * as messaging from "messaging";
 import * as fs from "fs";
 
+
 // Update the clock every minute
 clock.granularity = "minutes";
 

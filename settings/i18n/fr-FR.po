@@ -1,0 +1,38 @@
+msgid "clockface_settings"
+msgstr "Paramètres de la clockface"
+
+msgid "color"
+msgstr "Couleur"
+
+msgid "help"
+msgstr "Aide"
+
+msgid "helpl1"
+msgstr "Tapez sur l'heure pour l'afficher en minutes:secondes (au lieu de heures:minutes) jusqu'a ce que vous tapiez encore ou que l'écran s'éteigne."
+
+msgid "helpl2"
+msgstr "Tapez n'importe où ailleurs pour passer des pas au rythme cardiaque, aux calories, et aux étages."
+
+msgid "contact"
+msgstr "Contact"
+
+msgid "contacttxt"
+msgstr "N'hésitez pas à contribuer, demander des améliorations, ouvrir un ticket, ou aider pour la traduction."
+
+msgid "licences"
+msgstr "Licences"
+
+msgid "licence"
+msgstr "Licence"
+
+msgid "lic_ori_idea"
+msgstr "Idée originale : Simple Weather pour pebble par Evandro Muller"
+
+msgid "lic_ori_idea_link"
+msgstr "Sur le magasin d'app Rebble"
+
+msgid "lic_fitbit"
+msgstr "Icônes d'activité : "
+
+msgid "lic_weather"
+msgstr "Icônes méteo : "
