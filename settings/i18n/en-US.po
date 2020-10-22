@@ -11,7 +11,7 @@ msgid "helpl1"
 msgstr "Tap on time to display it in minutes:seconds (instead of hours:minutes) until another tap on time or until the screen goes off."
 
 msgid "helpl2"
-msgstr "Tap on battery to keep te display on until another tap on battery (⚠️⚡🔋). A rectangle displayed on the battery signals that the display will stay on."
+msgstr "Tap on battery to keep te display on until another tap on battery (⚠️⚡🔋). A rectangle is displayed on the battery and the watch vibrates every minutes to remind you that the display will stay on."
 
 msgid "helpl3"
 msgstr "Tap anywhere else to switch form steps to heart rate, calories and floors."

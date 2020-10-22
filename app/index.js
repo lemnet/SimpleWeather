@@ -45,6 +45,7 @@ let longitude = 0;
 let lastfetch = 0;
 let secDisplay = 0;
 let stayOn = 0;
+let stayOnMin = 0;
 
 
 // load weather
@@ -170,9 +171,14 @@ messaging.peerSocket.addEventListener("error", (err) => {
 
 // every minute
 clock.ontick = (evt) => {
-  if (stayOn == 1)
-    display.poke();
   const currentDate = evt.date;
+  if (stayOn == 1) {
+    display.poke();
+    if (stayOnMin != currentDate.getMinutes()) {
+      stayOnMin = currentDate.getMinutes();
+      vibration.start('bump');
+    }
+  }
   dateText.text = getDate(currentDate);
   if (currentAct == 0) //steps
     actText.text = today.adjusted.steps || 0;
