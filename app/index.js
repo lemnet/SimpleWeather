@@ -231,7 +231,9 @@ main.onclick = (evt) => {
     else {
       stayOn = 0;
       stayOnStatus.style.display = "none";
-      clock.granularity = "minutes";
+      if (secDisplay == 0) {
+        clock.granularity = "minutes";
+      }
     }
   }
   else {
