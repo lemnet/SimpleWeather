@@ -235,7 +235,7 @@ main.onclick = (evt) => {
   }
   else if ((evt.screenY) > 250 && (evt.screenX) > 115 && (evt.screenX) < 185) {
     if (stayOn == 0) {
-      stayOn = setInterval(pokepoke, 10);
+      stayOn = setInterval(pokepoke, 250);
       stayOnMin = setInterval(vibrate, 60000);
       stayOnStatus.style.display = "inline";
     }
