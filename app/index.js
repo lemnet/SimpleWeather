@@ -33,6 +33,8 @@ const locIcon = document.getElementById('locIcon');
 locIcon.style.display = "none";
 const locText = document.getElementById('locText');
 const lochText = document.getElementById('lochText');
+const btIcon = document.getElementById('btIcon');
+btIcon.style.display = "none";
 const battIcon = document.getElementById('battIcon');
 const battStatus = document.getElementById('battStatus');
 const stayOnStatus = document.getElementById('stayOnStatus');
@@ -40,12 +42,11 @@ stayOnStatus.style.display = "none";
 const tempText = document.getElementById('tempText');
 tempText.text = "--"
 let currentAct = 0;
-let latitude = 0;
-let longitude = 0;
 let lastfetch = 0;
 let secDisplay = 0;
 let stayOn = 0;
 let stayOnMin = 0;
+let btckeck = 0;
 
 
 // load weather
@@ -69,6 +70,10 @@ if (fs.existsSync("/private/data/color.txt")) {
   stayOnStatus.style.fill = settings.color;
   tempText.style.fill = settings.color;
 }
+if (fs.existsSync("/private/data/bt.txt")) {
+  if (fs.readFileSync("bt.txt", "json") == "true")
+    btckeck = setInterval(checkBT, 30000);
+}
 
 // HeartRateSensor
 const hrm = new HeartRateSensor({ frequency: 1 });
@@ -88,11 +93,10 @@ hrm.addEventListener("reading", () => {
 
 // location
 function locationSuccess(position) {
-  var api_key = fs.readFileSync("/mnt/assets/resources/openweather_api.key", "ascii");
   if (units.temperature == "C")
-    fetchWeather(position.coords.latitude,position.coords.longitude,"metric",api_key);
+    fetchWeather(position.coords.latitude,position.coords.longitude,"metric",fs.readFileSync("/mnt/assets/resources/openweather_api.key", "ascii"));
   else
-    fetchWeather(position.coords.latitude,position.coords.longitude,"imperial",api_key);
+    fetchWeather(position.coords.latitude,position.coords.longitude,"imperial",fs.readFileSync("/mnt/assets/resources/openweather_api.key", "ascii"));
 //  console.log("Latitude: " + position.coords.latitude,"Longitude: " + position.coords.longitude);
 }
 function locationError(error) {
@@ -113,6 +117,8 @@ function fetchWeather(latitude,longitude,units,api_key) {
       api_key : api_key
     });
   }
+  else
+    lastfetch = 0;
 }
 
 function processWeatherData(data) {
@@ -136,13 +142,10 @@ function processWeatherData(data) {
 //  console.log(`The location is: ${data.location}`);
 }
 
-messaging.peerSocket.addEventListener("open", (evt) => {
-  fetchWeather();
-});
-
 
 // message received
 messaging.peerSocket.addEventListener("message", (evt) => {
+  btIcon.style.display = "none";
   if (evt && evt.data && evt.data.key === "color") {
     vibration.start('bump');
     let json_data = {"color": evt.data.value}
@@ -158,6 +161,17 @@ messaging.peerSocket.addEventListener("message", (evt) => {
     stayOnStatus.style.fill = evt.data.value;
     tempText.style.fill = evt.data.value;
   }
+  else if (evt && evt.data && evt.data.key === "checkbt") {
+    vibration.start('bump');
+    if (evt.data.value == true) {
+      fs.writeFileSync("bt.txt", ("true"), "json");
+      btckeck = setInterval(checkBT, 30000);
+    }
+    else {
+      fs.writeFileSync("bt.txt", ("false"), "json");
+      clearInterval(btckeck);
+    }
+  }
   else if (evt && evt.data && evt.data.key === "weather") {
     processWeatherData(evt.data);
   }
@@ -169,16 +183,11 @@ messaging.peerSocket.addEventListener("error", (err) => {
 });
 
 
-// every minute
+// every minute or second if screen is on
 clock.ontick = (evt) => {
-  const currentDate = evt.date;
-  if (stayOn == 1) {
+  if (stayOn == 1) 
     display.poke();
-    if (stayOnMin != currentDate.getMinutes()) {
-      stayOnMin = currentDate.getMinutes();
-      vibration.start('bump');
-    }
-  }
+  const currentDate = evt.date;
   dateText.text = getDate(currentDate);
   if (currentAct == 0) //steps
     actText.text = today.adjusted.steps || 0;
@@ -231,15 +240,16 @@ main.onclick = (evt) => {
   else if ((evt.screenY) > 250 && (evt.screenX) > 115 && (evt.screenX) < 185) {
     if (stayOn == 0) {
       stayOn = 1;
+      stayOnMin = setInterval(vibrate, 60000);
       stayOnStatus.style.display = "inline";
       clock.granularity = "seconds";
     }
     else {
       stayOn = 0;
+      clearInterval(stayOnMin);
       stayOnStatus.style.display = "none";
-      if (secDisplay == 0) {
+      if (secDisplay == 0)
         clock.granularity = "minutes";
-      }
     }
   }
   else {
@@ -266,6 +276,22 @@ main.onclick = (evt) => {
       currentAct = 0;
     }
   }
+}
+
+//vibrate on BT disconnect
+function checkBT() {
+  if (btIcon.style.display == "none" && messaging.peerSocket.readyState === messaging.peerSocket.CLOSED) {
+    vibration.start('nudge-max');
+    btIcon.style.display = "inline";
+    display.poke();
+  }
+  else if (btIcon.style.display == "inline" && messaging.peerSocket.readyState === messaging.peerSocket.OPEN) 
+    btIcon.style.display = "none";
+}
+
+//vibrate
+function vibrate() {
+  vibration.start('bump');
 }
 
 display.addEventListener("change", () => {

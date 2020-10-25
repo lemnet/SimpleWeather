@@ -93,6 +93,13 @@
   fill: white;
 }
 
+#btIcon {
+  x: 50%-45;
+  y: 100%-42;
+  width: 22;
+  height: 32;
+}
+
 #battIcon {
   width: 40;
   height: 32;

@@ -57,6 +57,7 @@ settingsStorage.addEventListener("change", (evt) => {
 if (companion.launchReasons.settingsChanged) {
   // Send the value of the setting
   sendValue("color", settingsStorage.getItem("color"));
+  sendValue("checkbt", settingsStorage.getItem("checkbt"));  
 }
 
 function sendValue(key, val) {

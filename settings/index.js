@@ -9,6 +9,10 @@ function Settings(props) {
         <Text bold align="center">{gettext("clockface_settings")}</Text>
       </Section>
       <Section title={<Text></Text>}>
+        <Toggle
+          settingsKey="checkbt"
+          label={gettext("checkBT")}
+        />
         <Text>{gettext("color")}</Text>
         <ColorSelect
           settingsKey="color"

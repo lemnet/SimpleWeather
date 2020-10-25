@@ -1,6 +1,9 @@
 msgid "clockface_settings"
 msgstr "Paramètres de la clockface"
 
+msgid "checkBT"
+msgstr "Vérifier le BT toutes les 30 sec"
+
 msgid "color"
 msgstr "Couleur"
 

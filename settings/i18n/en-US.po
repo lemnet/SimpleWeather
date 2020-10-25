@@ -1,6 +1,9 @@
 msgid "clockface_settings"
 msgstr "Clockface settings"
 
+msgid "checkBT"
+msgstr "Check BT every 30 sec"
+
 msgid "color"
 msgstr "Color"
 

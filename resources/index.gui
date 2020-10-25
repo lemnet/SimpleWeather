@@ -6,6 +6,7 @@
   <text id="actText" />
   <text id="timeText" />
   <image id="condIcon" class="condIcon" load="sync" />
+  <image id="btIcon" class="btIcon" href="icons/bt.png" load="sync" />
   <svg id="locationarea">
     <image id="locIcon" class="locIcon" href="icons/location.png" load="sync" />
     <text id="locText" />
