@@ -93,6 +93,7 @@ hrm.addEventListener("reading", () => {
 
 // location
 function locationSuccess(position) {
+  btIcon.style.display = "none";
   if (units.temperature == "C")
     fetchWeather(position.coords.latitude,position.coords.longitude,"metric",fs.readFileSync("/mnt/assets/resources/openweather_api.key", "ascii"));
   else
@@ -294,7 +295,7 @@ function pokepoke() {
 }
 
 display.addEventListener("change", () => {
-  if (!display.on) {
+  if (!display.on && stayOn == 0) {
     secDisplay = 0;
     clock.granularity = "minutes";
   }    
