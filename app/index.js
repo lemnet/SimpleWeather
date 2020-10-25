@@ -185,8 +185,6 @@ messaging.peerSocket.addEventListener("error", (err) => {
 
 // every minute or second if screen is on
 clock.ontick = (evt) => {
-  if (stayOn == 1) 
-    display.poke();
   const currentDate = evt.date;
   dateText.text = getDate(currentDate);
   if (currentAct == 0) //steps
@@ -230,26 +228,22 @@ main.onclick = (evt) => {
     }
     else {
       secDisplay = 0;
-      if (stayOn == 0) {
-        setTimeout(function(){
-          clock.granularity = "minutes";
-        }, 1500);
-      }
+      setTimeout(function(){
+        clock.granularity = "minutes";
+      }, 1500);
     }
   }
   else if ((evt.screenY) > 250 && (evt.screenX) > 115 && (evt.screenX) < 185) {
     if (stayOn == 0) {
-      stayOn = 1;
+      stayOn = setInterval(pokepoke, 10);
       stayOnMin = setInterval(vibrate, 60000);
       stayOnStatus.style.display = "inline";
-      clock.granularity = "seconds";
     }
     else {
-      stayOn = 0;
+      clearInterval(stayOn);
       clearInterval(stayOnMin);
+      stayOn = 0;
       stayOnStatus.style.display = "none";
-      if (secDisplay == 0)
-        clock.granularity = "minutes";
     }
   }
   else {
@@ -292,6 +286,11 @@ function checkBT() {
 //vibrate
 function vibrate() {
   vibration.start('bump');
+}
+
+//poke
+function pokepoke() {
+    display.poke();
 }
 
 display.addEventListener("change", () => {
