@@ -276,9 +276,21 @@ main.onclick = (evt) => {
 //vibrate on BT disconnect
 function checkBT() {
   if (btIcon.style.display == "none" && messaging.peerSocket.readyState === messaging.peerSocket.CLOSED) {
-    vibration.start('nudge-max');
-    btIcon.style.display = "inline";
-    display.poke();
+    setTimeout(function(){
+      if (messaging.peerSocket.readyState === messaging.peerSocket.CLOSED) { 
+        setTimeout(function(){
+          if (messaging.peerSocket.readyState === messaging.peerSocket.CLOSED) { 
+            vibration.start('nudge-max');
+            btIcon.style.display = "inline";
+            display.poke();
+          }
+          else if (btIcon.style.display == "inline" && messaging.peerSocket.readyState === messaging.peerSocket.OPEN) 
+            btIcon.style.display = "none";
+        }, 1500);
+      }
+      else if (btIcon.style.display == "inline" && messaging.peerSocket.readyState === messaging.peerSocket.OPEN) 
+        btIcon.style.display = "none";
+    }, 1500);
   }
   else if (btIcon.style.display == "inline" && messaging.peerSocket.readyState === messaging.peerSocket.OPEN) 
     btIcon.style.display = "none";
