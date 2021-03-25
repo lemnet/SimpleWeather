@@ -1,6 +1,6 @@
 Cette clockface est une adaptation de Simple Weather pour Pebble par Evandro Muller.
 
-La météo est mise à jour toutes les demies heures ou quand l'écran s'allume.
+La météo est mise à jour toutes les 2 heures par défaut (mais paramétrable) ou quand l'écran s'allume, si elle n'a pas été mise à jour dans la dernière demie-heure.
 La montre peut vibrer si le bluetooth est déconnecté.
 
 Tapez sur l'heure pour l'afficher en minutes:secondes (au lieu de heures:minutes) jusqu'à ce que vous retapiez sur l'heure ou que l'écran s'éteigne.

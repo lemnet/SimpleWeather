@@ -1,6 +1,6 @@
 This clockface is an adaptation of Simple Weather for Pebble by Evandro Muller.
 
-Weather is updated every half hour or when the display comes on.
+Weather is updated every 2 hours by default (but configurable) or when the display comes on, if it has not been updated in the last half hour.
 Watch can vibrate when bluetooth is disconnected.
 
 Tap on time to display it in minutes:seconds (instead of hours:minutes) until another tap on time or until the screen goes off.

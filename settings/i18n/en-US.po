@@ -4,6 +4,9 @@ msgstr "Clockface settings"
 msgid "checkBT"
 msgstr "Check BT every 30 sec"
 
+msgid "updateinterval"
+msgstr "Upate weather every... (in hours)"
+
 msgid "color"
 msgstr "Color"
 

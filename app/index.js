@@ -47,6 +47,7 @@ let secDisplay = 0;
 let stayOn = 0;
 let stayOnMin = 0;
 let btckeck = 0;
+let wu = 0;
 
 
 // load weather
@@ -74,6 +75,11 @@ if (fs.existsSync("/private/data/bt.txt")) {
   if (fs.readFileSync("bt.txt", "json") == "true")
     btckeck = setInterval(checkBT, 30000);
 }
+
+if (fs.existsSync("/private/data/wui.txt"))
+  wu = setInterval(updateWeather, fs.readFileSync("wui.txt", "json")*60*1000);
+else
+  wu = setInterval(updateWeather, 60*60*1000);
 
 // HeartRateSensor
 const hrm = new HeartRateSensor({ frequency: 1 });
@@ -173,6 +179,11 @@ messaging.peerSocket.addEventListener("message", (evt) => {
       clearInterval(btckeck);
     }
   }
+  else if (evt && evt.data && evt.data.key === "updateinterval") {
+    vibration.start('bump');
+    fs.writeFileSync("wui.txt", (evt.data.value.values[0].value), "json");
+    wu = setInterval(updateWeather, fs.readFileSync("wui.txt", "json")*60*1000);
+  }
   else if (evt && evt.data && evt.data.key === "weather") {
     processWeatherData(evt.data);
   }
@@ -198,13 +209,8 @@ clock.ontick = (evt) => {
     timeText.text = getTimeHM(currentDate);
   else
     timeText.text = getTimeMS(currentDate);
-  //try to get location and weather
-  setTimeout(function(){
-    if ((currentDate.getTime() - lastfetch) > 1800000) { //every 30 min
-      lastfetch = currentDate.getTime();
-      geolocation.getCurrentPosition(locationSuccess, locationError, {timeout: 60 * 1000});
-    }
-  }, 5000);
+  //try to get location and weather if more than 1/2 h
+  updateWeather()
   //battery status
   const { chargeLevel } = battery;
   battStatus.height = (Math.round((27*chargeLevel)/100));
@@ -295,6 +301,18 @@ function checkBT() {
   else if (btIcon.style.display == "inline" && messaging.peerSocket.readyState === messaging.peerSocket.OPEN) 
     btIcon.style.display = "none";
 }
+
+//update weather
+function updateWeather() {
+  let currentDate = new Date();
+  setTimeout(function(){
+    if ((currentDate.getTime() - lastfetch) > 1799980) {
+      lastfetch = currentDate.getTime();
+      geolocation.getCurrentPosition(locationSuccess, locationError, {timeout: 60 * 1000});
+    }
+  }, 10000);
+}
+
 
 //vibrate
 function vibrate() {

@@ -13,6 +13,17 @@ function Settings(props) {
           settingsKey="checkbt"
           label={gettext("checkBT")}
         />
+        <Select
+          label={gettext("updateinterval")}
+          settingsKey="updateinterval"
+          options={[
+            {name:"½",value:"30"},
+            {name:"1",value:"60"},
+            {name:"2",value:"120"},
+            {name:"3",value:"180"},
+            {name:"4",value:"240"}
+          ]}
+        />
         <Text>{gettext("color")}</Text>
         <ColorSelect
           settingsKey="color"

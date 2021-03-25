@@ -7,6 +7,9 @@ msgstr "Vérifier le BT toutes les 30 sec"
 msgid "color"
 msgstr "Couleur"
 
+msgid "updateinterval"
+msgstr "MAJ de la méteo toutes les... (en heures)"
+
 msgid "help"
 msgstr "Aide"
 
