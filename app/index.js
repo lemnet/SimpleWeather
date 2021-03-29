@@ -48,6 +48,7 @@ let stayOn = 0;
 let stayOnMin = 0;
 let btckeck = 0;
 let wu = 0;
+let wui = 0;
 
 
 // load weather
@@ -77,9 +78,10 @@ if (fs.existsSync("/private/data/bt.txt")) {
 }
 
 if (fs.existsSync("/private/data/wui.txt"))
-  wu = setInterval(updateWeather, fs.readFileSync("wui.txt", "json")*60*1000);
+  wui = fs.readFileSync("wui.txt", "json")*60*1000;
 else
-  wu = setInterval(updateWeather, 60*60*1000);
+  wui = 60*60*1000);
+wu = setInterval(updateWeather, wui);
 
 // HeartRateSensor
 const hrm = new HeartRateSensor({ frequency: 1 });
@@ -221,7 +223,6 @@ clock.ontick = (evt) => {
     battStatus.style.fill = "orange";
   else
     battStatus.style.fill = "red";
-
 };
 
 
@@ -307,6 +308,8 @@ function updateWeather() {
   let currentDate = new Date();
   setTimeout(function(){
     if ((currentDate.getTime() - lastfetch) > 1799980) {
+      clearInterval(wu);
+      wu = setInterval(updateWeather, wui);
       lastfetch = currentDate.getTime();
       geolocation.getCurrentPosition(locationSuccess, locationError, {timeout: 60 * 1000});
     }
