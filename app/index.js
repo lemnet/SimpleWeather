@@ -80,7 +80,7 @@ if (fs.existsSync("/private/data/bt.txt")) {
 if (fs.existsSync("/private/data/wui.txt"))
   wui = fs.readFileSync("wui.txt", "json")*60*1000;
 else
-  wui = 60*60*1000);
+  wui = 60*60*1000;
 wu = setInterval(updateWeather, wui);
 
 // HeartRateSensor
