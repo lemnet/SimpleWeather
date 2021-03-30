@@ -16,7 +16,6 @@ import { me as device } from "device";
 import * as messaging from "messaging";
 import * as fs from "fs";
 
-
 // Update the clock every minute
 clock.granularity = "minutes";
 
@@ -267,12 +266,12 @@ main.onclick = (evt) => {
       actText.text = today.adjusted.calories || 0;
       currentAct = 2;
     }
-    else if (currentAct == 2) { // calo
+    else if (currentAct == 2 && device.modelId != 38) { // calo
       actIcon.href="icons/stairs.png"
       actText.text = today.adjusted.elevationGain || 0;
       currentAct = 3;
     }
-    else if (currentAct == 3) { // elevation
+    else if (currentAct == 3 || (currentAct == 2 && device.modelId == 38)) { // elevation
       actIcon.href="icons/step.png"
       actText.text = today.adjusted.steps || 0;
       currentAct = 0;
