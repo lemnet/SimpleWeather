@@ -13,6 +13,7 @@ import { vibration } from 'haptics';
 import { geolocation } from "geolocation";
 import { battery } from 'power';
 import { me as device } from "device";
+import sleep from "sleep";
 import * as messaging from "messaging";
 import * as fs from "fs";
 
@@ -145,6 +146,10 @@ function processWeatherData(data) {
     "location": data.location,
   }
   fs.writeFileSync("weather.txt", json_data, "json");
+  if (fs.existsSync("/private/data/bt.txt")) {
+    if (fs.readFileSync("bt.txt", "json") == "true")
+      btckeck = setInterval(checkBT, 30000);
+  }
 //  console.log(`The icon is: ${data.icon}`);
 //  console.log(`The temperature is: ${data.temperature}`);
 //  console.log(`The location is: ${data.location}`);
@@ -305,6 +310,7 @@ function checkBT() {
 //update weather
 function updateWeather() {
   let currentDate = new Date();
+  clearInterval(btckeck);
   setTimeout(function(){
     if ((currentDate.getTime() - lastfetch) > 1799980) {
       clearInterval(wu);
@@ -331,4 +337,15 @@ display.addEventListener("change", () => {
     secDisplay = 0;
     clock.granularity = "minutes";
   }    
+});
+
+sleep.addEventListener("change", () => {
+  if (sleep.state == "asleep") 
+    clearInterval(btckeck);
+  else {
+    if (fs.existsSync("/private/data/bt.txt")) {
+      if (fs.readFileSync("bt.txt", "json") == "true")
+        btckeck = setInterval(checkBT, 30000);
+    }
+  }
 });
